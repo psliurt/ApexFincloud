@@ -233,7 +233,7 @@ namespace ApexFincloud
 
         private void _sendStockOrderBtn_Click(object sender, EventArgs e)
         {
-            StockBuyOrSell buySellType;
+            StockBuyOrSell buySellType = StockBuyOrSell.None;
             if (this._stockBuyRdo.Checked)
             {
                 buySellType = StockBuyOrSell.Buy;
@@ -260,7 +260,7 @@ namespace ApexFincloud
             }
 
             this._apexApiFacade.SendStockOrder(this._stockCodeTxt.Text.Trim(),
-                StockBuyOrSell.Buy, 
+                buySellType, 
                 decimal.Parse(this._stockPriceTxt.Text),
                 int.Parse(this._stockVolTxt.Text) * 1000);
         }

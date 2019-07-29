@@ -260,6 +260,8 @@ namespace ApexCloudApi.Mgr
         /// </summary>
         RentSell, //RS
 
+        None //not set
+
     }
 
     
