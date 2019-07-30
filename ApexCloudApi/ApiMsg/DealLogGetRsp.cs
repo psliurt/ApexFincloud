@@ -8,6 +8,7 @@ namespace ApexCloudApi.ApiMsg
 {
     public class DealLogGetRsp
     {
+        public int total { get; set; }
         public string msg { get; set; }
         public bool success { get; set; }
         public List<DealLogItem> items { get; set; }
@@ -15,6 +16,7 @@ namespace ApexCloudApi.ApiMsg
 
     public class DealLogItem
     {
+        public string actmsg { get; set; }
         public string assetclearancedate { get; set; }
         public string assetcode { get; set; }
         public string assetid { get; set; }

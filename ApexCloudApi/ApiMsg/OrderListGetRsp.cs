@@ -10,12 +10,14 @@ namespace ApexCloudApi.ApiMsg
     {
         public string msg { get; set; }
         public bool success { get; set; }
+        public int total { get; set; }
         public List<OrderListItem> items { get; set; }
     }
 
     public class OrderListItem
     { 
         public string allowusercancel { get; set; }
+        public string assetcode { get; set; }
         public string assetid { get; set; }
         public string bsaction { get; set; }
         public string canceltime { get; set; }
@@ -33,6 +35,9 @@ namespace ApexCloudApi.ApiMsg
         public string orderid { get; set; }
         public string orderreason { get; set; }
         public string ordersource { get; set; }
+        /// <summary>
+        /// 0:新單 10:已經成交  20:人為取消
+        /// </summary>
         public int orderstatus { get; set; }
         public string orderstatusmsg { get; set; }
         public string ordertime { get; set; }

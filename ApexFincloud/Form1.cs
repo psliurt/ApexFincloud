@@ -94,7 +94,7 @@ namespace ApexFincloud
                 priceType = FuturePriceType.Limit;
             }
 
-            AddFutureOrder("TXFJ8.tw",
+            AddFutureOrder(this._futureOrderCodeTxt.Text.Trim(),
                 _futureBuyRdo.Checked ? FutureBuyOrSell.Buy : FutureBuyOrSell.Sell,
                 _futureDayTradeChk.Checked,
                 condition,

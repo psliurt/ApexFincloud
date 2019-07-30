@@ -52,7 +52,7 @@ namespace ApexCloudApi.Mgr
             decimal price,
             int vol)
         {
-            HttpSender http = new HttpSender(_sendFutureOrderApi);
+            HttpSender http = new HttpSender(_sendStockOrderApi);
             CookieContainer cookies = new CookieContainer();
             cookies.Add(this._loginCookies);
 

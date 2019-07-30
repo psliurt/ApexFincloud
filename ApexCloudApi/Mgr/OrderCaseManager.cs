@@ -27,17 +27,27 @@ namespace ApexCloudApi.Mgr
         private HttpHeaderList _header { get; set; }
 
         private List<string> _caseOrderIdList { get; set; }
+        private List<OrderListItem> _orderList { get; set; }
+        private List<DealLogItem> _dealList { get; set; }
+        private List<ErrorLogItem> _errorList { get; set; }
 
-        private string _cancelOrderApi = "https://fincloud.apex.com.tw/FinCloud/api/GVE/CancelOrder";
-        private string _orderListApi = "https://fincloud.apex.com.tw/FinCloud/api/GVE/OrderList/{0}";
-        private string _dealLogApi = "https://fincloud.apex.com.tw/FinCloud/api/GVE/DealLog/{0}";
-        private string _errorLogApi = "https://fincloud.apex.com.tw/FinCloud/api/GVE/ErrorLog/{0}";
+        //private string _cancelOrderApi = "https://fincloud.apex.com.tw/FinCloud/api/GVE/CancelOrder";
+        private string _cancelOrderApi = "https://www.fincloud.tw/FinCloud/api/GVE/CancelOrder";
+        //private string _orderListApi = "https://fincloud.apex.com.tw/FinCloud/api/GVE/OrderList/{0}";
+        private string _orderListApi = "https://www.fincloud.tw/FinCloud/api/GVE/OrderList/{0}";
+        //private string _dealLogApi = "https://fincloud.apex.com.tw/FinCloud/api/GVE/DealLog/{0}";
+        private string _dealLogApi = "https://www.fincloud.tw/FinCloud/api/GVE/DealLog/{0}";
+        //private string _errorLogApi = "https://fincloud.apex.com.tw/FinCloud/api/GVE/ErrorLog/{0}";
+        private string _errorLogApi = "https://www.fincloud.tw/FinCloud/api/GVE/ErrorLog/{0}";
         private OrderCaseManager(string gmrid, CookieCollection cookies, HttpHeaderList headers)
         {
             this._gmrid = gmrid;
             this._loginCookies = cookies;
             this._header = headers;
             this._caseOrderIdList = new List<string>();
+            this._orderList = new List<OrderListItem>();
+            this._dealList = new List<DealLogItem>();
+            this._errorList = new List<ErrorLogItem>();
         }
 
         public void AddNewOrderId(string orderId)
@@ -49,7 +59,7 @@ namespace ApexCloudApi.Mgr
         {
             if (this._caseOrderIdList.Contains(orderId) == false)
             {
-                
+                return;
             }
 
             HttpSender http = new HttpSender(this._cancelOrderApi);            
@@ -67,7 +77,7 @@ namespace ApexCloudApi.Mgr
             CancelOrderPostRsp rsp = JsonConvert.DeserializeObject<CancelOrderPostRsp>(response.ResponseBody);
         }
 
-        public void GetOrderList()
+        public List<OrderListItem> GetOrderList()
         {
             HttpSender http = new HttpSender(string.Format(this._orderListApi, this._gmrid));
             
@@ -76,9 +86,11 @@ namespace ApexCloudApi.Mgr
             ResponseResult response = http.SendRequest(HttpRequestMethod.Get, "", this._header, cookies);
             Console.Write(response.ResponseBody);
             OrderListGetRsp rsp = JsonConvert.DeserializeObject<OrderListGetRsp>(response.ResponseBody);
+            this._orderList = rsp.items;
+            return this._orderList;
         }
 
-        public void GetDealLog()
+        public List<DealLogItem> GetDealLog()
         {
             HttpSender http = new HttpSender(string.Format(this._dealLogApi, this._gmrid));
             
@@ -88,9 +100,11 @@ namespace ApexCloudApi.Mgr
             ResponseResult response = http.SendRequest(HttpRequestMethod.Get, "", this._header, cookies);
             Console.Write(response.ResponseBody);
             DealLogGetRsp rsp = JsonConvert.DeserializeObject<DealLogGetRsp>(response.ResponseBody);
+            this._dealList = rsp.items;
+            return this._dealList;
         }
 
-        public void GetErrorLog()
+        public List<ErrorLogItem> GetErrorLog()
         {
             HttpSender http = new HttpSender(string.Format(this._errorLogApi, this._gmrid));            
             CookieContainer cookies = new CookieContainer();
@@ -98,6 +112,8 @@ namespace ApexCloudApi.Mgr
             ResponseResult response = http.SendRequest(HttpRequestMethod.Get, "", this._header, cookies);
             Console.Write(response.ResponseBody);
             ErrorLogGetRsp rsp = JsonConvert.DeserializeObject<ErrorLogGetRsp>(response.ResponseBody);
+            this._errorList = rsp.items;
+            return this._errorList;
         }
     }
 }

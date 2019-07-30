@@ -56,20 +56,21 @@
             this._futureOrderCodeTxt = new System.Windows.Forms.TextBox();
             this._gmridListCmb = new System.Windows.Forms.ComboBox();
             this._stockOrderGrp = new System.Windows.Forms.GroupBox();
-            this._stockCodeTxt = new System.Windows.Forms.TextBox();
-            this._stockCodeLbl = new System.Windows.Forms.Label();
-            this._stockPriceTxt = new System.Windows.Forms.TextBox();
-            this._stockPriceLbl = new System.Windows.Forms.Label();
-            this._stockVolTxt = new System.Windows.Forms.TextBox();
-            this._stockVolLbl = new System.Windows.Forms.Label();
-            this._stockOrderTypeGrp = new System.Windows.Forms.GroupBox();
-            this._stockBuyRdo = new System.Windows.Forms.RadioButton();
-            this._stockSellRdo = new System.Windows.Forms.RadioButton();
-            this._stockMarginBuyRdo = new System.Windows.Forms.RadioButton();
-            this._stockRentBuyRdo = new System.Windows.Forms.RadioButton();
-            this._stockMarginSellRdo = new System.Windows.Forms.RadioButton();
-            this._stockRentSellRdo = new System.Windows.Forms.RadioButton();
             this._sendStockOrderBtn = new System.Windows.Forms.Button();
+            this._stockOrderTypeGrp = new System.Windows.Forms.GroupBox();
+            this._stockRentSellRdo = new System.Windows.Forms.RadioButton();
+            this._stockMarginSellRdo = new System.Windows.Forms.RadioButton();
+            this._stockRentBuyRdo = new System.Windows.Forms.RadioButton();
+            this._stockMarginBuyRdo = new System.Windows.Forms.RadioButton();
+            this._stockSellRdo = new System.Windows.Forms.RadioButton();
+            this._stockBuyRdo = new System.Windows.Forms.RadioButton();
+            this._stockVolLbl = new System.Windows.Forms.Label();
+            this._stockVolTxt = new System.Windows.Forms.TextBox();
+            this._stockPriceLbl = new System.Windows.Forms.Label();
+            this._stockPriceTxt = new System.Windows.Forms.TextBox();
+            this._stockCodeLbl = new System.Windows.Forms.Label();
+            this._stockCodeTxt = new System.Windows.Forms.TextBox();
+            this._orderListBox = new System.Windows.Forms.ListBox();
             this._futureBuySellGrp.SuspendLayout();
             this._futureTradeTypeGrp.SuspendLayout();
             this._futureOrderGrp.SuspendLayout();
@@ -275,10 +276,6 @@
             // 
             // _futureOrderGrp
             // 
-            this._futureOrderGrp.Controls.Add(this._futureErrorLogBtn);
-            this._futureOrderGrp.Controls.Add(this._futureDealLogBtn);
-            this._futureOrderGrp.Controls.Add(this._futureOrderListBtn);
-            this._futureOrderGrp.Controls.Add(this._cancelOrderBtn);
             this._futureOrderGrp.Controls.Add(this._futureOrderCodeTxt);
             this._futureOrderGrp.Controls.Add(this._futureDayTradeChk);
             this._futureOrderGrp.Controls.Add(this._futureSellBtn);
@@ -299,7 +296,7 @@
             // 
             // _futureErrorLogBtn
             // 
-            this._futureErrorLogBtn.Location = new System.Drawing.Point(183, 100);
+            this._futureErrorLogBtn.Location = new System.Drawing.Point(175, 344);
             this._futureErrorLogBtn.Name = "_futureErrorLogBtn";
             this._futureErrorLogBtn.Size = new System.Drawing.Size(75, 23);
             this._futureErrorLogBtn.TabIndex = 19;
@@ -309,7 +306,7 @@
             // 
             // _futureDealLogBtn
             // 
-            this._futureDealLogBtn.Location = new System.Drawing.Point(102, 99);
+            this._futureDealLogBtn.Location = new System.Drawing.Point(94, 344);
             this._futureDealLogBtn.Name = "_futureDealLogBtn";
             this._futureDealLogBtn.Size = new System.Drawing.Size(75, 23);
             this._futureDealLogBtn.TabIndex = 18;
@@ -319,7 +316,7 @@
             // 
             // _futureOrderListBtn
             // 
-            this._futureOrderListBtn.Location = new System.Drawing.Point(14, 99);
+            this._futureOrderListBtn.Location = new System.Drawing.Point(13, 344);
             this._futureOrderListBtn.Name = "_futureOrderListBtn";
             this._futureOrderListBtn.Size = new System.Drawing.Size(75, 23);
             this._futureOrderListBtn.TabIndex = 17;
@@ -329,11 +326,11 @@
             // 
             // _cancelOrderBtn
             // 
-            this._cancelOrderBtn.Location = new System.Drawing.Point(407, 17);
+            this._cancelOrderBtn.Location = new System.Drawing.Point(352, 344);
             this._cancelOrderBtn.Name = "_cancelOrderBtn";
             this._cancelOrderBtn.Size = new System.Drawing.Size(75, 23);
             this._cancelOrderBtn.TabIndex = 16;
-            this._cancelOrderBtn.Text = "CancelOrder";
+            this._cancelOrderBtn.Text = "取消訂單";
             this._cancelOrderBtn.UseVisualStyleBackColor = true;
             this._cancelOrderBtn.Click += new System.EventHandler(this._cancelOrderBtn_Click);
             // 
@@ -369,55 +366,15 @@
             this._stockOrderGrp.TabStop = false;
             this._stockOrderGrp.Text = "股票下單夾";
             // 
-            // _stockCodeTxt
+            // _sendStockOrderBtn
             // 
-            this._stockCodeTxt.Location = new System.Drawing.Point(112, 18);
-            this._stockCodeTxt.Name = "_stockCodeTxt";
-            this._stockCodeTxt.Size = new System.Drawing.Size(100, 22);
-            this._stockCodeTxt.TabIndex = 0;
-            // 
-            // _stockCodeLbl
-            // 
-            this._stockCodeLbl.Location = new System.Drawing.Point(6, 18);
-            this._stockCodeLbl.Name = "_stockCodeLbl";
-            this._stockCodeLbl.Size = new System.Drawing.Size(100, 23);
-            this._stockCodeLbl.TabIndex = 1;
-            this._stockCodeLbl.Text = "股票代碼";
-            this._stockCodeLbl.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            // 
-            // _stockPriceTxt
-            // 
-            this._stockPriceTxt.Location = new System.Drawing.Point(112, 53);
-            this._stockPriceTxt.Name = "_stockPriceTxt";
-            this._stockPriceTxt.Size = new System.Drawing.Size(100, 22);
-            this._stockPriceTxt.TabIndex = 2;
-            this._stockPriceTxt.Text = "0";
-            // 
-            // _stockPriceLbl
-            // 
-            this._stockPriceLbl.Location = new System.Drawing.Point(6, 51);
-            this._stockPriceLbl.Name = "_stockPriceLbl";
-            this._stockPriceLbl.Size = new System.Drawing.Size(100, 23);
-            this._stockPriceLbl.TabIndex = 3;
-            this._stockPriceLbl.Text = "價格";
-            this._stockPriceLbl.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            // 
-            // _stockVolTxt
-            // 
-            this._stockVolTxt.Location = new System.Drawing.Point(112, 87);
-            this._stockVolTxt.Name = "_stockVolTxt";
-            this._stockVolTxt.Size = new System.Drawing.Size(100, 22);
-            this._stockVolTxt.TabIndex = 4;
-            this._stockVolTxt.Text = "1";
-            // 
-            // _stockVolLbl
-            // 
-            this._stockVolLbl.Location = new System.Drawing.Point(6, 86);
-            this._stockVolLbl.Name = "_stockVolLbl";
-            this._stockVolLbl.Size = new System.Drawing.Size(100, 23);
-            this._stockVolLbl.TabIndex = 5;
-            this._stockVolLbl.Text = "數量";
-            this._stockVolLbl.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this._sendStockOrderBtn.Location = new System.Drawing.Point(594, 85);
+            this._sendStockOrderBtn.Name = "_sendStockOrderBtn";
+            this._sendStockOrderBtn.Size = new System.Drawing.Size(75, 23);
+            this._sendStockOrderBtn.TabIndex = 7;
+            this._sendStockOrderBtn.Text = "送單";
+            this._sendStockOrderBtn.UseVisualStyleBackColor = true;
+            this._sendStockOrderBtn.Click += new System.EventHandler(this._sendStockOrderBtn_Click);
             // 
             // _stockOrderTypeGrp
             // 
@@ -434,49 +391,16 @@
             this._stockOrderTypeGrp.TabStop = false;
             this._stockOrderTypeGrp.Text = "買賣方式";
             // 
-            // _stockBuyRdo
+            // _stockRentSellRdo
             // 
-            this._stockBuyRdo.AutoSize = true;
-            this._stockBuyRdo.Location = new System.Drawing.Point(19, 21);
-            this._stockBuyRdo.Name = "_stockBuyRdo";
-            this._stockBuyRdo.Size = new System.Drawing.Size(71, 16);
-            this._stockBuyRdo.TabIndex = 0;
-            this._stockBuyRdo.TabStop = true;
-            this._stockBuyRdo.Text = "現貨買進";
-            this._stockBuyRdo.UseVisualStyleBackColor = true;
-            // 
-            // _stockSellRdo
-            // 
-            this._stockSellRdo.AutoSize = true;
-            this._stockSellRdo.Location = new System.Drawing.Point(19, 57);
-            this._stockSellRdo.Name = "_stockSellRdo";
-            this._stockSellRdo.Size = new System.Drawing.Size(71, 16);
-            this._stockSellRdo.TabIndex = 1;
-            this._stockSellRdo.TabStop = true;
-            this._stockSellRdo.Text = "現貨賣出";
-            this._stockSellRdo.UseVisualStyleBackColor = true;
-            // 
-            // _stockMarginBuyRdo
-            // 
-            this._stockMarginBuyRdo.AutoSize = true;
-            this._stockMarginBuyRdo.Location = new System.Drawing.Point(139, 22);
-            this._stockMarginBuyRdo.Name = "_stockMarginBuyRdo";
-            this._stockMarginBuyRdo.Size = new System.Drawing.Size(71, 16);
-            this._stockMarginBuyRdo.TabIndex = 2;
-            this._stockMarginBuyRdo.TabStop = true;
-            this._stockMarginBuyRdo.Text = "融資買進";
-            this._stockMarginBuyRdo.UseVisualStyleBackColor = true;
-            // 
-            // _stockRentBuyRdo
-            // 
-            this._stockRentBuyRdo.AutoSize = true;
-            this._stockRentBuyRdo.Location = new System.Drawing.Point(139, 57);
-            this._stockRentBuyRdo.Name = "_stockRentBuyRdo";
-            this._stockRentBuyRdo.Size = new System.Drawing.Size(71, 16);
-            this._stockRentBuyRdo.TabIndex = 3;
-            this._stockRentBuyRdo.TabStop = true;
-            this._stockRentBuyRdo.Text = "融資賣出";
-            this._stockRentBuyRdo.UseVisualStyleBackColor = true;
+            this._stockRentSellRdo.AutoSize = true;
+            this._stockRentSellRdo.Location = new System.Drawing.Point(250, 56);
+            this._stockRentSellRdo.Name = "_stockRentSellRdo";
+            this._stockRentSellRdo.Size = new System.Drawing.Size(71, 16);
+            this._stockRentSellRdo.TabIndex = 5;
+            this._stockRentSellRdo.TabStop = true;
+            this._stockRentSellRdo.Text = "融券買進";
+            this._stockRentSellRdo.UseVisualStyleBackColor = true;
             // 
             // _stockMarginSellRdo
             // 
@@ -489,34 +413,122 @@
             this._stockMarginSellRdo.Text = "融券賣出";
             this._stockMarginSellRdo.UseVisualStyleBackColor = true;
             // 
-            // _stockRentSellRdo
+            // _stockRentBuyRdo
             // 
-            this._stockRentSellRdo.AutoSize = true;
-            this._stockRentSellRdo.Location = new System.Drawing.Point(250, 56);
-            this._stockRentSellRdo.Name = "_stockRentSellRdo";
-            this._stockRentSellRdo.Size = new System.Drawing.Size(71, 16);
-            this._stockRentSellRdo.TabIndex = 5;
-            this._stockRentSellRdo.TabStop = true;
-            this._stockRentSellRdo.Text = "融券買進";
-            this._stockRentSellRdo.UseVisualStyleBackColor = true;
+            this._stockRentBuyRdo.AutoSize = true;
+            this._stockRentBuyRdo.Location = new System.Drawing.Point(139, 57);
+            this._stockRentBuyRdo.Name = "_stockRentBuyRdo";
+            this._stockRentBuyRdo.Size = new System.Drawing.Size(71, 16);
+            this._stockRentBuyRdo.TabIndex = 3;
+            this._stockRentBuyRdo.TabStop = true;
+            this._stockRentBuyRdo.Text = "融資賣出";
+            this._stockRentBuyRdo.UseVisualStyleBackColor = true;
             // 
-            // _sendStockOrderBtn
+            // _stockMarginBuyRdo
             // 
-            this._sendStockOrderBtn.Location = new System.Drawing.Point(594, 85);
-            this._sendStockOrderBtn.Name = "_sendStockOrderBtn";
-            this._sendStockOrderBtn.Size = new System.Drawing.Size(75, 23);
-            this._sendStockOrderBtn.TabIndex = 7;
-            this._sendStockOrderBtn.Text = "送單";
-            this._sendStockOrderBtn.UseVisualStyleBackColor = true;
-            this._sendStockOrderBtn.Click += new System.EventHandler(this._sendStockOrderBtn_Click);
+            this._stockMarginBuyRdo.AutoSize = true;
+            this._stockMarginBuyRdo.Location = new System.Drawing.Point(139, 22);
+            this._stockMarginBuyRdo.Name = "_stockMarginBuyRdo";
+            this._stockMarginBuyRdo.Size = new System.Drawing.Size(71, 16);
+            this._stockMarginBuyRdo.TabIndex = 2;
+            this._stockMarginBuyRdo.TabStop = true;
+            this._stockMarginBuyRdo.Text = "融資買進";
+            this._stockMarginBuyRdo.UseVisualStyleBackColor = true;
+            // 
+            // _stockSellRdo
+            // 
+            this._stockSellRdo.AutoSize = true;
+            this._stockSellRdo.Location = new System.Drawing.Point(19, 57);
+            this._stockSellRdo.Name = "_stockSellRdo";
+            this._stockSellRdo.Size = new System.Drawing.Size(71, 16);
+            this._stockSellRdo.TabIndex = 1;
+            this._stockSellRdo.TabStop = true;
+            this._stockSellRdo.Text = "現貨賣出";
+            this._stockSellRdo.UseVisualStyleBackColor = true;
+            // 
+            // _stockBuyRdo
+            // 
+            this._stockBuyRdo.AutoSize = true;
+            this._stockBuyRdo.Location = new System.Drawing.Point(19, 21);
+            this._stockBuyRdo.Name = "_stockBuyRdo";
+            this._stockBuyRdo.Size = new System.Drawing.Size(71, 16);
+            this._stockBuyRdo.TabIndex = 0;
+            this._stockBuyRdo.TabStop = true;
+            this._stockBuyRdo.Text = "現貨買進";
+            this._stockBuyRdo.UseVisualStyleBackColor = true;
+            // 
+            // _stockVolLbl
+            // 
+            this._stockVolLbl.Location = new System.Drawing.Point(6, 86);
+            this._stockVolLbl.Name = "_stockVolLbl";
+            this._stockVolLbl.Size = new System.Drawing.Size(100, 23);
+            this._stockVolLbl.TabIndex = 5;
+            this._stockVolLbl.Text = "數量";
+            this._stockVolLbl.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            // 
+            // _stockVolTxt
+            // 
+            this._stockVolTxt.Location = new System.Drawing.Point(112, 87);
+            this._stockVolTxt.Name = "_stockVolTxt";
+            this._stockVolTxt.Size = new System.Drawing.Size(100, 22);
+            this._stockVolTxt.TabIndex = 4;
+            this._stockVolTxt.Text = "1";
+            // 
+            // _stockPriceLbl
+            // 
+            this._stockPriceLbl.Location = new System.Drawing.Point(6, 51);
+            this._stockPriceLbl.Name = "_stockPriceLbl";
+            this._stockPriceLbl.Size = new System.Drawing.Size(100, 23);
+            this._stockPriceLbl.TabIndex = 3;
+            this._stockPriceLbl.Text = "價格";
+            this._stockPriceLbl.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            // 
+            // _stockPriceTxt
+            // 
+            this._stockPriceTxt.Location = new System.Drawing.Point(112, 53);
+            this._stockPriceTxt.Name = "_stockPriceTxt";
+            this._stockPriceTxt.Size = new System.Drawing.Size(100, 22);
+            this._stockPriceTxt.TabIndex = 2;
+            this._stockPriceTxt.Text = "0";
+            // 
+            // _stockCodeLbl
+            // 
+            this._stockCodeLbl.Location = new System.Drawing.Point(6, 18);
+            this._stockCodeLbl.Name = "_stockCodeLbl";
+            this._stockCodeLbl.Size = new System.Drawing.Size(100, 23);
+            this._stockCodeLbl.TabIndex = 1;
+            this._stockCodeLbl.Text = "股票代碼";
+            this._stockCodeLbl.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            // 
+            // _stockCodeTxt
+            // 
+            this._stockCodeTxt.Location = new System.Drawing.Point(112, 18);
+            this._stockCodeTxt.Name = "_stockCodeTxt";
+            this._stockCodeTxt.Size = new System.Drawing.Size(100, 22);
+            this._stockCodeTxt.TabIndex = 0;
+            // 
+            // _orderListBox
+            // 
+            this._orderListBox.FormattingEnabled = true;
+            this._orderListBox.ItemHeight = 12;
+            this._orderListBox.Location = new System.Drawing.Point(14, 373);
+            this._orderListBox.Name = "_orderListBox";
+            this._orderListBox.SelectionMode = System.Windows.Forms.SelectionMode.MultiSimple;
+            this._orderListBox.Size = new System.Drawing.Size(715, 376);
+            this._orderListBox.TabIndex = 20;
             // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(741, 405);
+            this.ClientSize = new System.Drawing.Size(741, 756);
+            this.Controls.Add(this._orderListBox);
+            this.Controls.Add(this._cancelOrderBtn);
+            this.Controls.Add(this._futureErrorLogBtn);
             this.Controls.Add(this._stockOrderGrp);
+            this.Controls.Add(this._futureDealLogBtn);
             this.Controls.Add(this._gmridListCmb);
+            this.Controls.Add(this._futureOrderListBtn);
             this.Controls.Add(this._futureOrderGrp);
             this.Controls.Add(this._pwdLbl);
             this.Controls.Add(this._pwdTxt);
@@ -584,6 +596,7 @@
         private System.Windows.Forms.RadioButton _stockSellRdo;
         private System.Windows.Forms.RadioButton _stockBuyRdo;
         private System.Windows.Forms.Button _sendStockOrderBtn;
+        private System.Windows.Forms.ListBox _orderListBox;
     }
 }
 
